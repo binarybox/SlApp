@@ -1,0 +1,16 @@
+<ion-menu [content]="content" id="map-menu">
+  <ion-header>
+      <img src="assets/imgs/logo.svg"/>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngIf="role < 5"  (click)="addSpot($event)">{{"AddSpot" | translate}}</button>
+      <button ion-item *ngFor="let p of pages" (click)="goto(p.page)">{{p.title | translate}}</button>
+      <button ion-item (click)="close()">{{"Close" | translate }}</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

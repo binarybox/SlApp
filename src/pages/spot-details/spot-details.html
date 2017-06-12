@@ -1,0 +1,62 @@
+<!--
+  Generated template for the SpotDetails page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"details" | translate}}</ion-title>
+    <ion-buttons  end>
+      <button ion-button *ngIf="user != null" (click)="openPopover()">{{"edit" | translate}}</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <b>{{spot.name}}</b>
+    </ion-item>
+
+    <ion-item class="ranking">
+      <span class="bar"><span [style.width.%]="this.spot.amount" class="amount"></span></span>
+      <button ion-button *ngIf="user != null" class="add" (click)="voteUp()"><ion-icon name="add"></ion-icon></button>
+      <button ion-button *ngIf="user != null" class="sub" (click)="voteDown()"><ion-icon name="remove"></ion-icon></button>
+      <span class="text"><b>{{spot.votes}}</b> {{"votes" | translate}}</span>
+    </ion-item>
+    <ion-item>
+        <b>{{spot.type | translate}}</b> {{"type" | translate}}
+    </ion-item>
+    <ion-item>
+        <b>{{spot.length}} m</b> {{"length" | translate}}
+    </ion-item>
+
+    <ion-item *ngIf="spot.description != ''">
+        <div>{{spot.description}}</div>
+    </ion-item>
+    <ion-item class="images">
+      <ion-item *ngIf="!spot.imgLoaded">
+        <ion-spinner class="imageSpinner" ></ion-spinner>
+      </ion-item>
+        <ion-item class="imagePreview" *ngFor="let p of spot.images">
+          <ion-item [@hidden]="!p.loaded" class="innerImgWrapper">
+            <button ion-button *ngIf="user != null && ((p.creator == user.ID) || user.role <= 1)" class="removeButton" (click)="removeImage(p)" calm>
+              <ion-icon name="close"></ion-icon>
+            </button>
+            <img (load)="imgLoaded(p)"  (click)="showImage(p)" [src]="p.url" alt="{{p.img}}" title="{{p.ID}}">
+          </ion-item>
+          <ion-spinner *ngIf="!p.loaded"></ion-spinner>
+        </ion-item>
+    </ion-item>
+    <ion-item>
+      <div class="comments" *ngFor="let p of comments">
+        <p class="text" *ngIf="p.comment.length > 0" [ngClass]="p.vote == 1 ? class1 : class2">{{p.comment}}</p>
+
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

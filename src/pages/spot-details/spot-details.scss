@@ -1,0 +1,58 @@
+page-spot-details {
+  .images.item-md{
+    margin: -16px;
+    width: calc(100% + 32px);
+  }
+  .imageWrapper .item-inner{
+    padding: 0 !important;
+    text-align: center;
+  }
+  ion-item div{
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+  }
+  .imagePreview{
+    padding: 16px;
+    width: 50%;
+    float: left;
+    position: relative;
+    .item-inner{
+      padding: 0 !important;
+    }
+    ion-label{
+      margin: 0 !important;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .removeButton{
+    position: absolute;
+  }
+  .innerImgWrapper{
+    width: 100%;
+    padding: 0;
+    button.item-button{
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      padding: 0;
+      /*background-color: color($colors, primary);*/
+    }
+  }
+  .imageSpinner{
+    width: 100%;
+  }
+  .comments{
+    p.text{
+      color: #000;
+      font-family: "Roboto", "Helvetica Neue", sans-serif;
+      font-size: 1.0em;
+      padding: 0.1em 0;
+    }
+    .text.class1{
+      background-color: color($colors, primary);
+      display: block;
+    }
+  }
+}

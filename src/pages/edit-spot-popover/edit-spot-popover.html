@@ -1,0 +1,16 @@
+<!--
+  Generated template for the EditSpotPopover page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+  <ion-list>
+    <ion-list-header>{{"edit spot" | translate}}</ion-list-header>
+    <button ion-item *ngIf="permission" (click)="editName()">{{"edit name" | translate}}</button>
+    <button ion-item *ngIf="permission" (click)="editType()">{{"edit type" | translate}}</button>
+    <button ion-item *ngIf="permission" (click)="editLength()">{{"edit lenght" | translate}}</button>
+    <button ion-item *ngIf="permission" (click)="editDescription()">{{"edit description" | translate}}</button>
+    <button ion-item *ngIf="imgPermission" (click)="addImage()">{{"add Image" | translate}}</button>
+    <button ion-item *ngIf="permission" (click)="delete()">{{"delete spot" | translate}}</button>
+  </ion-list>

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the Map page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>{{"Map" | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+  <div id="mapWrapper">
+    <div id="map"></div>
+  </div>
+  <button id="location-button" *ngIf="showLocation" (click)="goToLocation()" ion-button round><ion-icon name="locate"></ion-icon></button>
+
+</ion-content>
+<div id="newSpotDetailsWrapper" class="spotDetailsWrapper">
+<ion-card id="newSpotDetails" class="spotDetails" [@details]="newSpotDetails" >
+  <ion-card-header>
+    {{"Create new Spot" | translate }}
+  </ion-card-header>
+  <ion-card-content>
+    <button ion-button (click)="cancelNewSpot()">{{"Cancel" | translate}}</button>
+    <button ion-button (click)="showNewSpotDetails()">{{"add Details" | translate}}</button>
+  </ion-card-content>
+</ion-card>
+</div>
+
+<div id="detailsWrapper" class="spotDetailsWrapper">
+<ion-card id="spotDetails" class="spotDetails" [@details]="spotDetails" >
+  <ion-card-header>
+    {{"Details for " | translate}}<b>{{spot.name}}</b>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="ranking">
+      <span class="bar"><span [style.width.%]="this.spot.amount" class="amount"></span></span>
+      <button ion-button *ngIf="user != null" class="add" (click)="voteUp()"><ion-icon name="add"></ion-icon></button>
+      <button ion-button *ngIf="user != null" class="sub" (click)="voteDown()"><ion-icon name="remove"></ion-icon></button>
+      <span class="text"><b>{{spot.votes}}</b> {{"votes" | translate}}</span>
+    </p>
+    <p><b>{{spot.type}}</b> {{"type" | translate}}</p>
+    <p><b>{{spot.length}}m</b> {{"length" | translate}}</p>
+    <button ion-button (click)="closeDetails()">{{"Close" | translate}}</button>
+    <button ion-button (click)="showDetails()">{{"Details" | translate}}</button>
+  </ion-card-content>
+</ion-card>
+</div>

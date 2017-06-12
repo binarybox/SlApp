@@ -1,0 +1,52 @@
+<!--
+  Generated template for the NewSpotDetails page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"AddSpot" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>{{"Name" | translate}}</ion-label>
+      <ion-input type="name" [(ngModel)]="spot.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>{{"Type" | translate}}</ion-label>
+      <ion-select name="select-type" id="select-type" [(ngModel)]="spot.type">
+          <ion-option value="1">{{"regular" | translate}}</ion-option>
+          <ion-option value="2">{{"waterline" | translate}}</ion-option>
+          <ion-option value="3">{{"highline" | translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>{{"Length in meter" | translate}}</ion-label>
+      <ion-input type="number" [(ngModel)]="spot.length"></ion-input>
+    </ion-item>
+    <ion-item>
+      <textarea (keydown)="expandText()" name="description" [(ngModel)]="spot.description" id="descriptionTextarea" placeholder='{{"description"| translate}}'>{{spot.description}}</textarea>
+    </ion-item>
+    <ion-item class="imageWrapper">
+      <button *ngIf="spot.images.length < 16" (click)="uploadImage()" ion-button full>{{"add Image" | translate}}</button>
+      <p class="images">
+        <ion-item class="imagePreview" *ngFor="let p of spot.images">
+          <button ion-button class="removeButton" (click)="removeImage(p)" calm>
+            <ion-icon name="close"></ion-icon>
+          </button>
+          <img  (click)="showImage(p)"  src="{{p.src}}" alt="{{p.title}}" title="{{p.title}}">
+        </ion-item>
+      </p>
+    </ion-item>
+    <ion-item>
+      <button ion-button (click)="saveMarker()" ion-button full>{{"Save" | translate}}</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

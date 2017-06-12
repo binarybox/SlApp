@@ -1,0 +1,29 @@
+page-new-spot-details {
+  .images{
+    margin: -2%;
+    width: 104%;
+  }
+  .images img{
+
+  }
+  .imageWrapper{
+    width: 100%;
+  }
+  p{
+    margin-top: 0.4em !important;
+  }
+  ion-item div{
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+  }
+  .imagePreview{
+    padding: 2%;
+    width: 46%;
+    float: left;
+    position: relative;
+  }
+  .removeButton{
+    position: absolute;
+  }
+}

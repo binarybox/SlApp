@@ -1,0 +1,176 @@
+page-map {
+  .scroll-content{
+    padding: 0 !important;
+  }
+  .leaflet-control-container{
+    display: none;
+  }
+  #map{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .spotDetailsWrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    top: 100%;
+    z-index: 999;
+  }
+
+  #location-button{
+    position: absolute;
+    left: auto;
+    right: 10px;
+    top: auto;
+    bottom: 10px;
+    z-index: 999;
+    padding: 22px;
+    width: 0px;
+  }
+
+  #mapWrapper{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+  }
+
+
+.map-marker {
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  content: "";
+  background: $user-marker;
+  border-radius: 50%;
+  z-index: 10;
+  &:before{
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 1px solid $user-marker;
+    animation-name: roundAnimation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    display: block;
+    content: "";
+  }
+}
+
+@mixin marker($url){
+  background-image: url($url);
+  background-size: 100%;
+}
+
+.regular-marker{
+  @include marker("../assets/imgs/regular-marker.svg");
+
+}
+
+.waterline-marker{
+  @include marker("../assets/imgs/waterline-marker.svg");
+}
+
+.highline-marker{
+  @include marker("../assets/imgs/highline-marker.svg");
+}
+
+$roundWidth: 15px;
+
+@keyframes roundAnimation {
+    from { left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  opacity: 1.0; }
+    to { left: -$roundWidth ;
+    right: -$roundWidth;
+    top: -$roundWidth;
+    bottom: -$roundWidth;
+  opacity: 0.0;}
+
+}
+
+@-webkit-keyframes roundAnimation {
+  from { left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+opacity: 1.0;}
+  to { left: -$roundWidth ;
+  right: -$roundWidth;
+  top: -$roundWidth;
+  bottom: -$roundWidth;
+opacity: 0.0;}
+}
+}
+
+ion-menu{
+  #image-wrapper{
+    background-color: #00ff00;
+    min-height: 5px;
+  }
+}
+.spotDetails{
+
+  ion-card-content{
+    p{
+      border-bottom: 1px solid #dcdcdc;
+      padding: 0.5em 0;
+    }
+
+    .ranking{
+      position: relative;
+      .bar{
+        width: 70%;
+        height: 8px;
+        //
+        display: block;
+        margin-bottom: 5px;
+        box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.75);
+        border: 1px rgba(0,0,0,0.75);
+        .amount{
+          background-color: color($colors, primary);
+          height: 100%;
+          width: 100%;
+          display: block;
+        }
+      }
+
+      button{
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: auto;
+        border-radius: 50%;
+      }
+      .sub{
+        right: 45px;
+      }
+    }
+  }
+}
