@@ -19,7 +19,7 @@ declare var cordova: any;
 
 @Component({
   templateUrl: 'app.html',
-  providers: [SpotsManager]
+  providers: [SpotsManager, SplashScreen]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
